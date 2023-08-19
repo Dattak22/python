@@ -18,9 +18,9 @@ def create_bucket(bucket_name, region=None):
     try:
         if region is None:
             s3_client = boto3.client('s3')
-            s3_client.create_bucket(Bucket=bucket_name)
+            s3_client.create_bucket(Bucket='my_buck')
         else:
-            s3_client = boto3.client('s3', region_name=region)
+            s3_client = boto3.client('s3', region_name='ap-southeast-1b')
             location = {'LocationConstraint': region}
             s3_client.create_bucket(Bucket=bucket_name,
                                     CreateBucketConfiguration=location)
